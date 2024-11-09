@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <% if(nav === true){ %>
+        <nav class="bg-zinc-600 w-full p-4 shadow-md fixed top-0 z-10">
+            <div class="container mx-auto flex justify-between items-center">
+              <!-- Left: Logo and Home Button -->
+              <div class="flex items-center space-x-4">
+                <!-- Pinterest Logo -->
+                <a href="/feed  " class="flex items-center">
+                  <svg
+                    height="32"
+                    viewBox="-3 -3 82 82"
+                    width="32"
+                    style="display: block"
+                  >
+                    <title>Pinterest logo</title>
+                    <circle cx="38" cy="38" fill="white" r="40"></circle>
+                    <path
+                      d="M27.5 71c3.3 1 6.7 1.6 10.3 1.6C57 72.6 72.6 57 72.6 37.8 72.6 18.6 57 3 37.8 3 18.6 3 3 18.6 3 37.8c0 14.8 9.3 27.5 22.4 32.5-.3-2.7-.6-7.2 0-10.3l4-17.2s-1-2-1-5.2c0-4.8 3-8.4 6.4-8.4 3 0 4.4 2.2 4.4 5 0 3-2 7.3-3 11.4C35.6 49 38 52 41.5 52c6.2 0 11-6.6 11-16 0-8.3-6-14-14.6-14-9.8 0-15.6 7.3-15.6 15 0 3 1 6 2.6 8 .3.2.3.5.2 1l-1 3.8c0 .6-.4.8-1 .4-4.4-2-7-8.3-7-13.4 0-11 7.8-21 22.8-21 12 0 21.3 8.6 21.3 20 0 12-7.4 21.6-18 21.6-3.4 0-6.7-1.8-7.8-4L32 61.7c-.8 3-3 7-4.5 9.4z"
+                      fill="red"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+
+                <!-- Home Button -->
+                <a href="/profile" class="text-lg font-semibold text-zinc-800 bg-white px-3 py-2 rounded-full">Home</a>
+                <a href="/feed" class="text-lg font-semibold text-white px-3 py-2">Feed</a>
+              </div>
+
+              <!-- Center: Search Bar -->
+              <div class="flex-grow mx-4">
+                <div class="relative">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="w-full px-3 py-2 bg-zinc-100 rounded-full focus:outline-none text-sm text-zinc-800"
+                    style="max-width: 300px"
+                  />
+                </div>
+              </div>
+
+              <!-- Right: Icons and Profile -->
+              <div class="flex items-center space-x-4">
+                <!-- Logout Button -->
+                <a href="/logout" class="text-lg font-semibold text-white bg-red-700 rounded-md px-3 py-2 hover:bg-red-600 hover:text-black">Logout</a>
+
+                <!-- Profile Icon -->
+                <% if (user) { %>
+                <a href="/profile" class="relative">
+                  <div class="w-8 h-8 bg-zinc-200 rounded-full overflow-hidden">
+                    <img
+                      class="w-full h-full object-cover"
+                      src="/images/uploads/<%= user.profileImage %>"
+                      alt="Profile"
+                    />
+                  </div>
+                </a>
+                <% } else { %>
+                <a href="/login" class="text-white">Login</a>
+                <% } %>
+              </div>
+            </div>
+          </nav>
+    <% }%>
